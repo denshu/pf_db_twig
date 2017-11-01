@@ -126,7 +126,7 @@ $(document).on("click", ".character", function() {
 
     if ($(this).hasClass('character-playable')) {
         $.ajax({
-          url: 'generate_character_stats.php',
+          url: 'generate_character_info.php',
           type: 'POST',
           dataType: 'html',
           data: {character_name: $selector}
@@ -142,7 +142,7 @@ $(document).on("click", ".character", function() {
     }
     else if ($(this).hasClass('character-npc')) {
         $.ajax({
-          url: 'generate_npc_stats.php',
+          url: 'generate_npc_info.php',
           type: 'POST',
           dataType: 'html',
           data: {character_name: $selector}

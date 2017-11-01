@@ -54,4 +54,101 @@ class Util {
 			'characters' => $characters
 		);
 	}
+
+	public static function getCharacterInfo($name, $type, $con) {
+		$selection = 'SELECT * FROM ' . $type . ' WHERE name = "'.$name.'"';
+		$result = mysqli_query($con,$selection);
+		return mysqli_fetch_array($result, MYSQLI_ASSOC);
+	}
+
+	public static function getStatCoordinates($character) {
+		$hp = $character['hp_rating'];
+		$sp = $character['sp_rating'];
+		$str = $character['str_rating'];
+		$dex = $character['dex_rating'];
+		$agi = $character['agi_rating'];
+		$int = $character['int_rating'];
+
+		if ($hp == 'A')
+			$hp = '8,2';
+		elseif ($hp == 'B')
+			$hp = '8,3';
+		elseif ($hp == 'C')
+			$hp = '8,4';
+		elseif ($hp == 'D')
+			$hp = '8,5';
+		elseif ($hp == 'E')
+			$hp = '8,6';
+
+		if ($sp == 'A')
+			$sp = ' 14,5';
+		elseif ($sp == 'B')
+			$sp = ' 13,5.5';
+		elseif ($sp == 'C')
+			$sp = ' 12,6';
+		elseif ($sp == 'D')
+			$sp = ' 11,6.5';
+		elseif ($sp == 'E')
+			$sp = ' 10,7';
+
+		if ($str == 'A')
+			$str = ' 14,11';
+		elseif ($str == 'B')
+			$str = ' 13,10.5';
+		elseif ($str == 'C')
+			$str = ' 12,10';
+		elseif ($str == 'D')
+			$str = ' 11,9.5';
+		elseif ($str == 'E')
+			$str = ' 10,9';
+
+		if ($dex == 'A')
+			$dex = ' 8,14';
+		elseif ($dex == 'B')
+			$dex = ' 8,13';
+		elseif ($dex == 'C')
+			$dex = ' 8,12';
+		elseif ($dex == 'D')
+			$dex = ' 8,11';
+		elseif ($dex == 'E')
+			$dex = ' 8,10';
+		elseif ($dex == 'S')
+			$dex = ' 8,15';
+
+		if ($agi == 'A')
+			$agi = ' 2,11';
+		elseif ($agi == 'B')
+			$agi = ' 3,10.5';
+		elseif ($agi == 'C')
+			$agi = ' 4,10';
+		elseif ($agi == 'D')
+			$agi = ' 5,9.5';
+		elseif ($agi == 'E')
+			$agi = ' 6,9';
+		elseif ($agi == 'S')
+			$agi = ' 1,11.5';
+
+		if ($int == 'A')
+			$int = ' 2,5';
+		elseif ($int == 'B')
+			$int = ' 3,5.5';
+		elseif ($int == 'C')
+			$int = ' 4,6';
+		elseif ($int == 'D')
+			$int = ' 5,6.5';
+		elseif ($int == 'E')
+			$int = ' 6,7';
+
+		if ($character['nation'] == 'Alerian Federation')
+			$color = '#0000CC';
+		elseif ($character['nation'] ==  'Gran Eszak Empire')
+			$color = '#CC0000';
+		else
+			$color = '#00CC00';
+
+		return array(
+			'coordinates' => $hp . $sp .$str . $dex . $agi . $int,
+			'color' => $color
+		);
+	}
 }

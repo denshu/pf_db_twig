@@ -1,0 +1,15 @@
+<div class="container-fluid">
+	<div class="row" id="character-modal-firstrow">
+		<div class="col-xs-2" id="character-modal-sprite">
+			<img src="{{ character.sprite }}" title="{{ character.name }}"/>
+		</div>
+		<div class="col-xs-10" id="character-modal-asl">
+			<span id="character-modal-gender" value="{{ character.gender }}"></span><br>
+			<span id="character-modal-nation" value="{{ character.nation }}">{{ character.nation }}</span><br>
+			Hometown: {{ character.location }}
+		</div>
+	</div>
+	<div class="row" id="npc-modal-thirdrow">
+		<p>{{ character.description }}</p>
+	</div>
+</div>

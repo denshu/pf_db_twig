@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project FLIPNOTIK Database</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,700' rel='stylesheet' type='text/css'>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/database.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
+</head>
+<body>
+	{# Navbar at top of page #}
+	{% include 'navbar.html.twig' %}
+
+  <div class="container-fluid">
+  	{# Sidebar #}
+  	<div class="row">
+   		<div class="col-sm-3 col-md-2 sidebar">
+   			<ul class="nav nav-sidebar">
+      		<li id="sidebar-playable" class="active"><a href="#">Playable Characters <span class="sr-only">(current)</span></a></li>
+      		<li id="sidebar-npcs"><a href="#">Antagonists and NPCs</a></li>
+      		<li id="sidebar-statistics"><a href="#">Statistics</a></li>
+      		<li id="sidebar-compare"><a href="#">Compare Characters (coming soon!)</a></li>
+    		</ul>
+    	</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<div class="row placeholders characterModule">
+      		<h1 class="sub-header">Playable Characters</h1>
+
+      		{# search feature #}
+					{% include 'search.html.twig' %}
+
+					{# character grid #}
+					{% include 'character_grid.html.twig' %}
+				</div>
+			</div>
+		</div>
+
+		{# modal for character stats (when a character is clicked on the grid) #}
+		{% include 'modal_character_info.html.twig' %}
+
+		{# modal for about section #}
+		{% include 'modal_about.html.twig' %}
+		
+	</div>
+	{# jQuery (necessary for Bootstrap's JavaScript plugins) #}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  {# Include all compiled plugins (below), or include individual files as needed #}
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+		$(window).on("load", function() {
+			$('.character').each(function(index) {
+				$(this).delay(120*index).queue(function() { 
+					$(this).addClass('in').dequeue(); 
+				});
+			});
+		});
+	</script>
+</body>
+</html>

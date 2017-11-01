@@ -1,0 +1,61 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="panel-group" id="accordion" role="tablist">
+			<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingOne">
+					<h3 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+  						Search
+					</a>
+					</h3>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+					<div class="panel-body">
+			  	<div class="form-group">
+			  		<label for="select-gender">Gender</label>
+			  		<select class="form-control" id="select-gender">
+			  			<option></option>
+						{% for gender in search_options_gender %}
+						<option>{{ gender }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="select-nation">Nation</label>
+					<select class="form-control" id="select-nation">
+						<option></option>
+						{% for nation in search_options_nation %}
+						<option>{{ nation }}</option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="select-location">Location</label>
+					<select class="form-control" id="select-location">
+						<option></option>';
+						{% for location in search_options_location %}
+						<option>{{ location }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				{# Sorting method #}
+				<div class="form-group"><label for="sort-by">Sort By</label><select class="form-control" id="sort-by">
+					<option>name</option>
+					<option>hp_rating</option>
+					<option>sp_rating</option>
+					<option>str_rating</option>
+					<option>dex_rating</option>
+					<option>agi_rating</option>
+					<option>int_rating</option>
+					</select>
+				</div>
+				<button type="button" class="btn btn-default btn-lg" id="search-button">
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+				</button>
+					</div>
+			</div>
+			</div>
+		</div>
+</div>
+</div>

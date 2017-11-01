@@ -1,0 +1,22 @@
+<div id="character-grid-container">
+	<div class="character-grid">
+		{% set character_row_count = 0 %}
+		{% for character in characters %}
+
+			{% if (character_row_count == 0) or (character_row_count is divisible by(4)) %}
+				<div class="row">
+				{% set character_row_count = character_row_count + 1 %}
+			{% endif %}
+
+				<div class="col-xs-3 character character-{{ type }}" style="text-align:center" data-toggle="modal" data-target="#characterDetails">
+					<h4 value="{{ character.name }}">{{ character.name }}</h4>
+					<img src="{{ character.static_sprite }}" />
+				</div>
+
+			{% if (character_row_count == 0) or (character_row_count is divisible by(4)) %}
+				</div>
+				{% endif %}
+
+		{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,216 @@
+/* base structure */
+
+body {
+  padding-top: 50px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* top navigation */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/* sidebar */
+
+/* hide for mobile */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px;
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/* main content */
+
+.main {
+  padding: 20px;
+  margin-top: -30px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.character {
+  opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+  padding-bottom: 15px;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid rgba(86,61,124,.2);
+}
+.character:hover {
+  background-color: rgba(86,61,124,.3);
+  cursor: pointer;
+}
+
+.in {
+    opacity: 1;
+}
+
+/* modal alignment */
+
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none;
+}
+.vertical-align-center {
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events:none;
+}
+.modal-content {
+    width:inherit;
+    height:inherit;
+    margin: 0 auto;
+    pointer-events: all;
+}
+
+#character-modal-asl {
+  font-size: 14pt;
+  font-style: italic;
+  text-align: right;
+  
+}
+
+#character-modal-sprite {
+  text-align: center;
+}
+
+#character-modal-firstrow, #character-modal-secondrow {
+  margin-bottom: 0px;
+}
+
+#svgcol {
+    margin: 0 auto;
+    width: 50%;
+}
+
+#character-modal-backing-hex {
+  position: relative;
+}
+
+[value="Alerian Federation"] {
+  color: #313cce;
+}
+
+[value="Gran Eszak Empire"] {
+  color: #CC0000;
+}
+
+[value="Nansei Allied Union"] {
+  color: green;
+}
+
+[value="Unaffiliated"] {
+  color: gray;
+}
+
+#about-modal-body {
+  font-size: 12pt;
+}
+
+#character-modal-thirdrow {
+  width: 95%;
+  margin: 0px auto;
+  font-size: 12pt;
+
+}
+
+#npc-modal-thirdrow {
+  margin: 0px auto;
+  font-size: 12pt;
+  margin-top:15px;
+  width: 95%;
+}
+
+.character-playable-0 {
+  background-color: rgba(75, 192, 192, .25);
+  border: 1px solid rgba(75, 192, 192, .35);
+}
+
+.character-playable-0:hover {
+  background-color: rgba(75, 192, 192, .5);
+}
+
+.character-playable-1 {
+  background-color: rgba(255, 99, 132, .25);
+  border: 1px solid rgba(255, 99, 132, .35);
+}
+
+.character-playable-1:hover {
+  background-color: rgba(255, 99, 132, .5);
+}
+
+.character-playable-2 {
+  background-color: rgba(54, 162, 235, .25);
+  border: 1px solid rgba(54, 162, 235, .35);
+}
+
+.character-playable-2:hover {
+  background-color: rgba(54, 162, 235, .5);
+}
+
+.character-playable-3 {
+  background-color: rgba(255, 205, 86, .25);
+  border: 1px solid rgba(255, 205, 86, .35);
+}
+
+.character-playable-3:hover {
+  background-color: rgba(255, 205, 86, .5);
+}
+
+.close {
+  font-size: 42px;
+}

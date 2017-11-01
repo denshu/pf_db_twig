@@ -55,6 +55,34 @@ class Util {
 		);
 	}
 
+	public static function searchCharacters($con, $gender = '', $nation = '', $location = '', $sort = 'name') {
+		if ($gender !== '' && $nation !== '' && $location !== '')
+		    $selection = 'SELECT name,static_sprite FROM characters WHERE gender = "'.$gender.'" AND nation = "'.$nation.'" AND location = "'.$location.'" ORDER BY '.$sort;            
+
+		if ($gender !== '' && $nation !== '' && $location == '')
+		    $selection = 'SELECT name,static_sprite FROM characters WHERE gender = "'.$gender.'" AND nation = "'.$nation.'" ORDER BY '.$sort;
+
+		if ($gender !== '' && $nation == '' && $location !== '')
+		    $selection = 'SELECT name,static_sprite FROM characters WHERE gender = "'.$gender.'" AND location = "'.$location.'" ORDER BY '.$sort; 
+
+		if ($gender !== '' && $nation == '' && $location == '')
+		    $selection = 'SELECT name,static_sprite FROM characters WHERE gender = "'.$gender.'" ORDER BY '.$sort;
+
+		if ($gender == '' && $nation !== '' && $location !== '')
+		    $selection = 'SELECT name,static_sprite FROM characters WHERE nation = "'.$nation.'" AND location = "'.$location.'" ORDER BY '.$sort;
+
+		if ($gender == '' && $nation !== '' && $location == '')
+		    $selection = 'SELECT name,static_sprite FROM characters WHERE nation = "'.$nation.'" ORDER BY '.$sort;
+
+		if ($gender == '' && $nation == '' && $location !== '')
+		    $selection = 'SELECT name,static_sprite FROM characters WHERE location = "'.$location.'" ORDER BY '.$sort;
+
+		if ($gender == '' && $nation == '' && $location == '')
+		    $selection = 'SELECT name,static_sprite FROM characters ORDER BY '.$sort; 
+
+		return mysqli_query($con,$selection);
+	}
+
 	public static function getCharacterInfo($name, $type, $con) {
 		$selection = 'SELECT * FROM ' . $type . ' WHERE name = "'.$name.'"';
 		$result = mysqli_query($con,$selection);
